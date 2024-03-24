@@ -19,14 +19,17 @@ import (
 // https://minecraft.wiki/w/Map_item_format
 
 func main() {
-	data, err := os.ReadFile("map_0.dat")
+
+	filename := "map_0"
+
+	data, err := os.ReadFile(filename + ".dat")
 	if err != nil {
 		log.Fatalf("Failed to read file: %v", err)
 	}
 
 	gr, err := gzip.NewReader(bytes.NewReader(data))
 	if err != nil {
-		log.Fatalf("Failed to create gzip reader: %v", err)
+		log.Fatalf("Failed to create gzip reader, make sure it is a valid map file: %v", err)
 	}
 	defer gr.Close()
 
@@ -272,7 +275,7 @@ func main() {
 		}
 	}
 
-	file, err := os.Create("output.png")
+	file, err := os.Create(filename + ".png")
 	if err != nil {
 		log.Fatalf("Failed to create image file: %v", err)
 	}
@@ -282,5 +285,5 @@ func main() {
 		log.Fatalf("Failed to encode image: %v", err)
 	}
 
-	fmt.Println("Image created successfully.")
+	fmt.Printf("Image created successfully.\nFilename: %v\nDimensions: %vx%v\n", filename, width, height)
 }
