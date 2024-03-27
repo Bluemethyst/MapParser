@@ -29,9 +29,14 @@ jobs:
             - name: Test
               run: go test -v ./...
 
+            - name: Generate Tag Name
+              id: generate_tag
+              run: |
+                  echo "TAG_NAME=v$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+
             - name: Create Tag
               run: |
-                  git tag "v$(date +%Y%m%d%H%M%S)"
+                  git tag ${{ env.TAG_NAME }}
                   git push --tags
 
             - name: Create Release
