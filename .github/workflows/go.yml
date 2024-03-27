@@ -49,12 +49,12 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   tag_name: ${{ env.TAG_NAME }}
-                  release_name: Release ${{ github.ref }}
+                  release_name: Release ${{ env.TAG_NAME }}
                   draft: false
                   prerelease: false
 
-            - name: Upload Release Asset
-              id: upload-release-asset
+            - name: Upload Exe Asset
+              id: upload-exe-asset
               uses: actions/upload-release-asset@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,4 +62,15 @@ jobs:
                   upload_url: ${{ steps.create_release.outputs.upload_url }}
                   asset_path: ./mapparser.exe
                   asset_name: mapparser.exe
+                  asset_content_type: application/octet-stream
+
+            - name: Upload Bat Asset
+              id: upload-bat-asset
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./addtopath.bat
+                  asset_name: addtopath.bat
                   asset_content_type: application/octet-stream
