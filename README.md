@@ -4,9 +4,9 @@ A Minecraft map item parser to turn map.dat files into pngs!
 
 ## Usage
 
-Download and run mapparser.exe from releases inside the same directory as your map.dat file. Input your filename without the .dat extension and it will be converted to .png and output in the same directory.
+Download and run mapparser.exe from [releases](/releases) inside the same directory as your map.dat file. Input your filename without the .dat extension and it will be converted to .png and output in the same directory.
 
-You can also add this to your PATH enviroment variable so it can be run from the command line by just typing `mapparser`. Run the `addtopath.bat` in the same folder as your mapparser.exe and it will be copied to `C:\MapParser` and added to your PATH. Test it out by opening cmd and running `mapparser`.
+You can also add this to your PATH enviroment variable so it can be run from the command line by just typing `mapparser`. Download and run the `addtopath.bat` in the same folder as your mapparser.exe and it will be copied to `C:\MapParser` and added to your PATH. Test it out by opening cmd and running `mapparser`.
 
 ## Contributing
 
