@@ -15,3 +15,10 @@ type MapData struct {
 	}
 	DataVersion int `nbt:"DataVersion"`
 }
+
+type ColorMap struct {
+	Colormap_1_12     map[int][]int `json:"colormap-1_12"`
+	Colormap_1_8_1    map[int][]int `json:"colormap-1_8_1"`
+	Colormap_1_7_2    map[int][]int `json:"colormap-1_7_2"`
+	Colormap_Original map[int][]int `json:"colormap-original"`
+}
